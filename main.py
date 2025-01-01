@@ -1,6 +1,5 @@
 from itertools import product
 
-
 def generate_functions(n):
     return product([0, 1], repeat=2 ** n) # через yield сделать
 
@@ -22,7 +21,7 @@ def count_m(functions):
     count = 0
     for f in functions:
         flag = True
-        for a, b in product(range(2 ** n), repeat=2):
+        for a, b in product(range(len(f)), repeat=2):
             if (a & b) == a and f[a] > f[b]:
                 flag = False
                 break
@@ -72,4 +71,4 @@ def calculate_post_classes(n):
 
 
 
-calculate_post_classes(4)
+calculate_post_classes(int(input()))
